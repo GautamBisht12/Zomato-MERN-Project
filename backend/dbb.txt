@@ -1,0 +1,4 @@
+pwd-7jhQrdYAGoqSPTI4
+username - gautamupsell_db_user
+
+mongodb+srv://gautamupsell_db_user:<db_password>@cluster0.rzrrioh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
