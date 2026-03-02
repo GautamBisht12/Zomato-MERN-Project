@@ -1,4 +1,4 @@
-import userModel from "../models/user.model";
+import userModel from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
@@ -44,6 +44,32 @@ const registerUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
     // your login logic here
+    const { email, password } = req.body;
+
+    const user = await userModel.findOne({ email })
+
+    if (!user) {
+        res.status(400).json({ message: "User does not exist" })
+    }
+
+    const isPasswordvalid = await bcrypt.compare(password, user.password)
+
+    if (!isPasswordvalid) {
+        res.status(400).json({ message: "Invalid email or password" })
+    }
+    const token = jwt.sign({
+        id: user._id
+    }, "2ee8a3d609460bd7d00f7e2432871f0b")
+    res.cookie("token", token);
+
+    return res.status(200).json({
+        message: "User logged in successfully",
+        user: {
+            _id: user._id,
+            username: user.username,
+            email: user.email
+        }
+    });
 };
 
 export { registerUser, loginUser };
