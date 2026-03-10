@@ -1,5 +1,5 @@
 import express from "express"
-import { createFood } from "../controllers/food.controller.js"
+import { createFood, getFoodItems } from "../controllers/food.controller.js"
 import { authfoodPartnerMiddleware } from "../middlewares/auth.middleware.js"
 import multer from "multer"
 
@@ -11,5 +11,7 @@ const upload = multer({
 
 
 router.post("/", authfoodPartnerMiddleware, upload.single("video"), createFood)
+
+router.get("/", getFoodItems)
 
 export default router
