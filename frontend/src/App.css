@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-red: #E23744;
+  --color-brand-red-hover: #CB202D;
+  --color-brand-green: #2196F3;
+}
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900 transition-colors duration-200;
+  }
+
+  html.dark body {
+    @apply bg-gray-950 text-gray-100;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
