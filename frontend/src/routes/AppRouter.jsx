@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import UserAuth from '../pages/auth/UserAuth'
 import PartnerAuth from '../pages/auth/PartnerAuth'
 
+
 const AppRouter = () => {
     return (
         <Router>
