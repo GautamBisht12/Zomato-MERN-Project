@@ -1,0 +1,1 @@
+console.log('Tailwind version check:', require('tailwindcss/package.json').version)
